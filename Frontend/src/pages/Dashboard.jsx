@@ -112,7 +112,9 @@ const Dashboard = () => {
       </section>
 
       {loading ? (
-        <Loader />
+        <div className="surface-card">
+          <Loader />
+        </div>
       ) : (
         <>
           {error && <p className="form-error">{error}</p>}

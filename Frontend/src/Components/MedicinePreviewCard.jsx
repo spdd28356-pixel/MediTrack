@@ -17,8 +17,8 @@ const MedicinePreviewCard = ({ medicine, onDelete }) => {
     <div className="medicine-preview-card">
       <div className="medicine-preview-card__header">
         <div>
-          <p className="medicine-card__label">{medicineName}</p>
-          <p className="medicine-card__meta">{dosage} • {mealTiming}</p>
+          <p className="medicine-preview-card__label">{medicineName}</p>
+          <p className="medicine-preview-card__meta">{dosage} • {mealTiming}</p>
         </div>
         <span className={`status-pill status-pill--${isCompleted ? "taken" : "pending"}`}>
           {isCompleted ? "Completed" : "Active"}

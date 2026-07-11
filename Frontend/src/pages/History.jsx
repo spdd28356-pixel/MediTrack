@@ -29,6 +29,9 @@ const History = () => {
       .sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [history, query]);
 
+  const takenCount = filteredHistory.filter((row) => row.status === "Taken").length;
+  const missedCount = filteredHistory.filter((row) => row.status !== "Taken").length;
+
   return (
     <main className="page-container history-page">
       <div className="page-header">
@@ -50,16 +53,42 @@ const History = () => {
         </div>
       </div>
 
+      <section className="dashboard-grid">
+        <div className="summary-card summary-card--primary">
+          <div className="summary-card__top">
+            <p className="summary-card__title">Total Logs</p>
+            <span className="summary-card__value">{filteredHistory.length}</span>
+          </div>
+          <p className="summary-card__detail">Medication records recovered from your history.</p>
+        </div>
+        <div className="summary-card summary-card--success">
+          <div className="summary-card__top">
+            <p className="summary-card__title">Taken</p>
+            <span className="summary-card__value">{takenCount}</span>
+          </div>
+          <p className="summary-card__detail">Completed doses captured in your log.</p>
+        </div>
+        <div className="summary-card summary-card--danger">
+          <div className="summary-card__top">
+            <p className="summary-card__title">Missed</p>
+            <span className="summary-card__value">{missedCount}</span>
+          </div>
+          <p className="summary-card__detail">Pending follow-up entries from your history.</p>
+        </div>
+      </section>
+
       {loading ? (
-        <Loader />
+        <div className="surface-card">
+          <Loader />
+        </div>
       ) : error ? (
         <div className="placeholder-block">{error}</div>
       ) : filteredHistory.length === 0 ? (
         <div className="placeholder-block">No history records found.</div>
       ) : (
-        <div className="card">
+        <section className="section-block">
           <HistoryTable rows={filteredHistory} />
-        </div>
+        </section>
       )}
     </main>
   );

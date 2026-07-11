@@ -1,6 +1,16 @@
 import { createContext, useContext, useState } from "react";
 
-const ReminderContext = createContext();
+const defaultReminderContext = {
+  showReminder: false,
+  currentReminders: [],
+  openReminder: () => {},
+  closeReminder: () => {},
+  acknowledgeReminder: () => {},
+  reminderActionHandler: null,
+  registerReminderActionHandler: () => {},
+};
+
+const ReminderContext = createContext(defaultReminderContext);
 
 export const ReminderProvider = ({ children }) => {
 

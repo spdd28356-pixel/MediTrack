@@ -7,7 +7,9 @@ export const startReminderService = (
     openReminder
 ) => {
 
-    Notification.requestPermission();
+    if (typeof Notification !== "undefined") {
+        Notification.requestPermission();
+    }
 
     const intervalId = setInterval(() => {
 
@@ -39,10 +41,12 @@ export const startReminderService = (
 
         if (!dueMedicines.length) return;
 
-        const audio = new Audio(reminderSound);
-        audio.play();
+        const audio = typeof Audio !== "undefined" ? new Audio(reminderSound) : null;
+        if (audio) {
+            audio.play().catch(() => {});
+        }
 
-        if (Notification.permission === "granted") {
+        if (typeof Notification !== "undefined" && Notification.permission === "granted") {
             const title = dueMedicines.length === 1 ? "Medicine Reminder" : "Multiple Medicine Reminders";
             const body = dueMedicines.length === 1
                 ? `Time to take ${dueMedicines[0].medicineName}`

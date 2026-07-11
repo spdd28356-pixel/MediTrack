@@ -118,9 +118,9 @@ const getMedicineHistory = async (userId) => {
 
     const history = logs.map((log) => ({
     logId: log._id,
-    medicineName: log.medicine.medicineName,
-    dosage: log.medicine.dosage,
-    mealTiming: log.medicine.mealTiming,
+    medicineName: log.medicine?.medicineName || "Medicine Deleted",
+    dosage: log.medicine?.dosage || "-",
+    mealTiming: log.medicine?.mealTiming || "-",
     date: log.date,
     reminderTime: log.reminderTime,
     status: log.status,

@@ -13,23 +13,24 @@ import Profile from "./pages/Profile.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 const AppContent = () => {
-  const { user } = useAuth();
-
   return (
     <div className="app-shell">
-      {user && <NavBar />}
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
+        {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/medicines" element={<Medicine />} />
-          <Route path="/medicines/add" element={<AddEditMedicine />} />
-          <Route path="/medicines/:id/edit" element={<AddEditMedicine />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route element={<NavBar />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/medicines" element={<Medicine />} />
+            <Route path="/medicines/add" element={<AddEditMedicine />} />
+            <Route path="/medicines/:id/edit" element={<AddEditMedicine />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />
@@ -37,10 +38,9 @@ const AppContent = () => {
     </div>
   );
 };
-
 const App = () => (
   <AuthProvider>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AppContent />
     </BrowserRouter>
   </AuthProvider>

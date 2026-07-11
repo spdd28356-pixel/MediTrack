@@ -52,13 +52,15 @@ const Medicine = () => {
           <h1>Medicines</h1>
           <p className="section-subtitle">Manage your medication list and schedule reminders.</p>
         </div>
-        <Link className="btn-primary" to="/medicines/add">
+        <Link className="button button--primary" to="/medicines/add">
           Add Medicine
         </Link>
       </div>
 
       {loading ? (
-        <Loader />
+        <div className="surface-card">
+          <Loader />
+        </div>
       ) : error ? (
         <div className="placeholder-block">{error}</div>
       ) : medicines.length === 0 ? (

@@ -48,10 +48,10 @@ const Profile = () => {
             <p className="profile-email">{user?.email || "No email available"}</p>
 
             <div className="profile-actions">
-              <button type="button" className="btn-primary">
+              <button type="button" className="button button--primary">
                 Edit Profile
               </button>
-              <button type="button" className="button--secondary" onClick={logout}>
+              <button type="button" className="button button--secondary" onClick={logout}>
                 Logout
               </button>
             </div>
