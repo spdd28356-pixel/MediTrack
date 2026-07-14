@@ -122,7 +122,7 @@ const Dashboard = () => {
             <SummaryCard title="Today's Medicines" value={summary?.total ?? 0} detail="Scheduled for today" accent="primary" />
             <SummaryCard title="Taken" value={summary?.taken ?? 0} detail="Completed doses" accent="success" />
             <SummaryCard title="Missed" value={summary?.missed ?? 0} detail="Missed doses" accent="danger" />
-            <SummaryCard title="Pending" value={summary?.pending ?? 0} detail="Pending reminders" accent="muted" />
+            <SummaryCard title="Pending" value={Math.max(0, summary?.pending ?? 0)} detail="Pending reminders" accent="muted" />
           </section>
 
           <section className="section-block">

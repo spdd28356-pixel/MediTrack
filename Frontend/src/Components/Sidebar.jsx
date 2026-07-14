@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom";
+import dashboard from "../assets/icons/Dashboard.png"
+import medication from "../assets/icons/Medicines.png"
+import history from "../assets/icons/History.png"
+import person from "../assets/icons/Profile.png"
 
 const navItems = [
-  { to: "/dashboard", label: "Dashboard", icon: "dashboard" },
-  { to: "/medicines", label: "Medicines", icon: "medication" },
-  { to: "/history", label: "History", icon: "history" },
-  { to: "/profile", label: "Profile", icon: "person" },
+  { to: "/dashboard", label: "Dashboard", icon: dashboard },
+  { to: "/medicines", label: "Medicines", icon: medication },
+  { to: "/history", label: "History", icon: history },
+  { to: "/profile", label: "Profile", icon: person },
 ];
 
 const Sidebar = () => {

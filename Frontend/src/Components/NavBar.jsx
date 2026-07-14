@@ -1,12 +1,19 @@
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import Logo from "../assets/images/MediTrack_Logo.png";
+import Setting from "../assets/icons/Setting.png"
+import Notification from "../assets/icons/notification.png"
+import Logout from "../assets/icons/Logout.png"
+import Dashboard from "../assets/icons/Dashboard.png"
+import Medication from "../assets/icons/Medicines.png"
+import History from "../assets/icons/History.png"
+import Person from "../assets/icons/Profile.png"
 
 const navItems = [
-  { to: "/dashboard", label: "Dashboard", icon: "dashboard" },
-  { to: "/medicines", label: "Medicines", icon: "medication" },
-  { to: "/history", label: "History", icon: "history" },
-  { to: "/profile", label: "Profile", icon: "person" },
+  { to: "/dashboard", label: "Dashboard", icon: Dashboard },
+  { to: "/medicines", label: "Medicines", icon: Medication },
+  { to: "/history", label: "History", icon: History },
+  { to: "/profile", label: "Profile", icon: Person },
 ];
 
 const getPageTitle = (pathname) => {
@@ -53,9 +60,13 @@ const NavBar = () => {
               to={item.to}
               className={({ isActive }) => `sidebar__nav-item${isActive ? " sidebar__nav-item--active" : ""}`}
             >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                {item.icon}
-              </span>
+
+          <img 
+                  src={item.icon} 
+                  alt="" // Leave empty for decorative icons since you have the text label right below
+                  className="sidebar__nav-icon" 
+                  style={{ width: "20px", height: "20px" }} // Adjust sizing as needed
+                />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -63,7 +74,7 @@ const NavBar = () => {
 
         <div className="sidebar__footer">
           <button className="sidebar__logout" onClick={handleLogout} type="button">
-            <span className="material-symbols-outlined">logout</span>
+            <span className="material-symbols-outlined"><img src={Logout} alt="logout" style={{height:"20px", width:"20px"}} /></span>
             <span>Logout</span>
           </button>
         </div>
@@ -78,10 +89,10 @@ const NavBar = () => {
 
           <div className="topbar__actions">
             <button className="topbar__button" type="button" aria-label="Notifications">
-              <span className="material-symbols-outlined">notifications</span>
+              <span className="material-symbols-outlined"><img src={Notification} alt="notification" /></span>
             </button>
             <button className="topbar__button" type="button" aria-label="Settings">
-              <span className="material-symbols-outlined">settings</span>
+              <span className="material-symbols-outlined"><img src={Setting} alt="setting" /></span>
             </button>
             <div className="avatar" title={user?.fullName || user?.email || "User"}>
               {initials}
@@ -96,3 +107,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+ 

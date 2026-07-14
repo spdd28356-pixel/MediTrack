@@ -53,7 +53,7 @@ const Medicine = () => {
           <p className="section-subtitle">Manage your medication list and schedule reminders.</p>
         </div>
         <Link className="button button--primary" to="/medicines/add">
-          Add Medicine
+          + Add Medicine
         </Link>
       </div>
 

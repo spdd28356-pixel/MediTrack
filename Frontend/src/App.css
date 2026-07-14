@@ -80,6 +80,77 @@ img {
   background: var(--background);
 }
 
+.Home-page-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at top, rgba(0, 109, 54, 0.14), transparent 35%), var(--background);
+}
+
+.floating{
+    position: absolute;
+    width: 100px;
+    opacity: 0.5;
+}
+
+.top-left{
+    top:60px;
+    left:70px;
+}
+
+.top-right{
+    top:100px;
+    right:120px;
+}
+
+.bottom-left{
+    bottom:90px;
+    left:120px;
+}
+
+.bottom-right{
+    bottom:60px;
+    right:80px;
+}
+
+.center-top {
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Home-card {
+  width: 100%;
+  max-width: 750px;
+  text-align: center;
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.card h1 {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.home-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
 .sidebar {
   position: sticky;
   top: 0;

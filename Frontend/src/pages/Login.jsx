@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
+import Calender from "../assets/icons/calendar.png"
+import Shield from "../assets/icons/shield-check.png"
+import Pulse from "../assets/icons/pulse.png"
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -49,15 +52,22 @@ const Login = () => {
 
           <div className="auth-info">
             <div className="auth-info__item">
-              <span className="material-symbols-outlined">shield</span>
+              <span className="material-symbols-outlined">
+                <img src={Shield} alt="" style={{height:"20px", width:"20px"}}/>
+
+              </span>
               <span>Protected account access</span>
             </div>
             <div className="auth-info__item">
-              <span className="material-symbols-outlined">calendar_month</span>
+              <span className="material-symbols-outlined">
+                <img src={Calender} alt="" style={{height:"20px", width:"20px"}}/>
+              </span>
               <span>Medication schedule at a glance</span>
             </div>
             <div className="auth-info__item">
-              <span className="material-symbols-outlined">monitor_heart</span>
+              <span className="material-symbols-outlined">
+                <img src={Pulse} alt="" style={{height:"20px", width:"20px"}}/>
+              </span>
               <span>Health tracking from one place</span>
             </div>
           </div>

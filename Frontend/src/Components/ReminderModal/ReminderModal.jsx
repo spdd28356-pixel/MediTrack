@@ -1,5 +1,6 @@
 import "./ReminderModal.css";
 import { useReminder } from "../../context/ReminderContext";
+import ReminderIcon from "../../assets/icons/alarm-clock.png"
 
 const ReminderModal = () => {
   const context = useReminder();
@@ -31,7 +32,7 @@ const ReminderModal = () => {
       <div className="reminder-card">
         <div className="reminder-card__header">
           <div className="reminder-card__icon">
-            <span className="material-symbols-outlined">notifications_active</span>
+            <span className="material-symbols-outlined"><img src={ReminderIcon} alt="" /></span>
           </div>
           <div>
             <h2>Medicine Reminder</h2>
